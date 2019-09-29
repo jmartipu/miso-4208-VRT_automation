@@ -1,0 +1,19 @@
+{
+  "name": "miso-4208-VRT_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "node-resemble-js": "^0.2.0",
+    "react-file-base64": "^1.0.3",
+    "resemblejs": "^3.2.3"
+  }
+}
