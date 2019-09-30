@@ -2,17 +2,21 @@
   "name": "miso-4208-VRT_automation",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "myapp/public/javascripts/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "myapp/cypress run --headed",
+    "start": "cd myapp && npm start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "cypress": "^3.4.1",
+    "express": "^4.17.1",
     "node-resemble-js": "^0.2.0",
+    "npm": "^6.11.3",
+    "pug": "^2.0.4",
     "react-file-base64": "^1.0.3",
     "resemblejs": "^3.2.3"
   }

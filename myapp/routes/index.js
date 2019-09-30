@@ -1,10 +1,30 @@
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render(``, { title: 'Crear Reporte' });
+});
+router.get('/reporte/', function(req, res, next) {
+    console.log("llamado");
+    crearReporte();
+});
+module.exports = router;
+
+
+
+function crearReporte() {
+  var npm = require('npm');
+  npm.command.run('test', (err) => { console.log(err) });
+  generarReporte(process.cwd() + "/cypress/screenshots/1.1.TallerVRTScreenshot.js/Antes.png", process.cwd() + "/cypress/screenshots/1.1.TallerVRTScreenshot.js/Despues.png");
+}
 
 function generarReporte(file1source, file2source){
     var resemblejs = require('resemblejs');
-var fs = require('fs');
-var file1 = fs.readFileSync(file1source);
-var file2 = fs.readFileSync(file2source);
-resemblejs(file1).compareTo(file2).onComplete(function(data){
+    var fs = require('fs');
+    var file1 = fs.readFileSync(file1source);
+    var file2 = fs.readFileSync(file2source);
+    resemblejs(file1).compareTo(file2).onComplete(function(data){
     var fecha = new Date();
     console.log(data);
     var html = `
@@ -57,7 +77,8 @@ resemblejs(file1).compareTo(file2).onComplete(function(data){
     </body>
     </html>
     `;
-    fs.writeFile(getDate(fecha)+ "_" + "reporte.html", html, function(err) {
+
+    fs.writeFile("reporte.html", html, function(err) {
 
         if(err) {
             return console.log(err);
@@ -70,10 +91,9 @@ resemblejs(file1).compareTo(file2).onComplete(function(data){
 
 function getDate(fecha){
     let now = fecha;
-    let date = now.toLocaleDateString().substr(5,4)
+    let date = now.toUTCString().substr(5,4)
         + now.toLocaleDateString().substr(3,2).replace("/", "")
         + now.toLocaleDateString().substr(0,2)
         + "_" + now.toLocaleTimeString();
     return date;
 }
-
