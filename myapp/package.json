@@ -14,7 +14,7 @@
     "express": "~4.16.1",
     "morgan": "^1.9.1",
     "node-resemble-js": "^0.2.0",
-    "npm": "^6.11.3",
+    "npm": "^6.13.4",
     "pm2": "^3.5.1",
     "react-file-base64": "^1.0.3",
     "resemblejs": "^3.2.3"
